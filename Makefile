@@ -82,10 +82,10 @@ psalm:
 
 phpcs:
 	echo 'Running codesniffer...'
-	php ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit true --cache -p src tests
+	php ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit true --cache -p
 
 phpcbf:
-	php ./vendor/bin/phpcbf -p --runtime-set ignore_warnings_on_exit true
+	php ./vendor/bin/phpcbf -p --runtime-set ignore_warnings_on_exit true src tests
 
 rector-safe:
 	./vendor/bin/rector process ./src --config vendor/thecodingmachine/safe/rector-migrate-0.6.yml
