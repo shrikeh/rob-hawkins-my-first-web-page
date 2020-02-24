@@ -10,6 +10,7 @@
   <exclude-pattern>*.js</exclude-pattern>
   <!-- Wherever Symfony stores the precompiled container, we don't care about it -->
   <exclude-pattern>*/cache/*</exclude-pattern>
+  <exclude-pattern>config/*</exclude-pattern>
   <!-- phpspec uses it's very own special coding standard -->
   <exclude-pattern>*/spec/*</exclude-pattern>
   <arg name="basepath" value="."/>
