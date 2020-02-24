@@ -1,0 +1,9 @@
+---
+preset: psr12
+risky: true
+finder:
+  exclude:
+    - node_modules
+    - vendor
+    - tool
+    - tests/integration

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+         backupGlobals="false"
+         executionOrder="random"
+         resolveDependencies="true"
+         beStrictAboutOutputDuringTests="true"
+         bootstrap="tests/unit/bootstrap.php"
+         colors="true"
+         failOnRisky="true"
+         failOnWarning="true"
+         verbose="true"
+>
+    <php>
+      <ini name="error_reporting" value="2147483647"/>
+      <ini name="display_errors" value="1"/>
+      <server name="APP_ENV" value="test" />
+      <server name="APP_DEBUG" value="0" />
+
+        <!-- ###+ symfony/framework-bundle ### -->
+        <env name="APP_ENV" value="dev"/>
+        <env name="APP_SECRET" value="b1de2b0154f5a38c1596644a34c03a17"/>
+        <env name="KERNEL_CLASS" value="App\Kernel\DefaultKernel" />
+        <!-- env name="TRUSTED_PROXIES" value="127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16" -->
+        <!-- env name="TRUSTED_HOSTS" value="'^(localhost|example\.com)$'" -->
+        <!-- ###- symfony/framework-bundle ### -->
+
+        <!-- ###+ symfony/messenger ### -->
+        <!-- Choose one of the transports below -->
+        <!-- MESSENGER_TRANSPORT_DSN=amqp://guest:guest@localhost:5672/%2f/messages -->
+        <!-- MESSENGER_TRANSPORT_DSN=doctrine://default -->
+        <!-- MESSENGER_TRANSPORT_DSN=redis://localhost:6379/messages -->
+        <!-- ###- symfony/messenger ### -->
+    </php>
+    <logging>
+        <log type="coverage-html" target="./build/coverage/phpunit/html" />
+        <log type="coverage-xml" target="./build/coverage/phpunit/coverage-xml" />
+        <log type="coverage-clover" target="./build/coverage/phpunit/clover.xml" />
+        <log type="junit" target="./build/coverage/phpunit/junit.xml" />
+        <log type="coverage-php" target="./build/coverage/phpunit.phpcoverage" />
+    </logging>
+    <testsuites>
+      <testsuite name="Rob's first webpage tests">
+        <directory>./tests/unit/src</directory>
+      </testsuite>
+    </testsuites>
+    <filter>
+      <whitelist processUncoveredFilesFromWhitelist="true">
+        <directory suffix=".php">./src</directory>
+      </whitelist>
+    </filter>
+</phpunit>

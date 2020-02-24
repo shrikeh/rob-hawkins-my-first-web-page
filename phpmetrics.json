@@ -1,0 +1,5 @@
+{
+  "report-html": "build/metrics",
+  "junit": "build/coverage/phpunit/junit.xml",
+  "exclude": ".phpspec, var, build, features, hooks, node_modules, public, tools, translations"
+}

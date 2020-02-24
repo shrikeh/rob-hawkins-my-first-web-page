@@ -1,0 +1,37 @@
+---
+build:
+  environment:
+    php:
+      version: "7.4.3"
+  cache:
+    disabled: false
+    directories:
+      - ~/.composer/cache
+  nodes:
+    tests:
+      commands:
+    diving:
+      tests:
+        override:
+          - php-scrutinizer-run --sub-project-dir=src
+          - vendor/bin/phpspec run
+    coverage:
+      tests:
+        override:
+          - command: vendor/bin/phpunit
+            coverage:
+              file: build/coverage/phpunit/clover.xml
+              # These formats are supported:
+              # clover, cobertura, jacoco, python-cc, ruby-cc, go-cc, lcov
+              format: clover
+    app:
+      tests:
+        override:
+          - php-scrutinizer-run --sub-project-dir=src
+          - vendor/bin/phpunit --prepend "./tests/unit/xdebug-filter.php"
+    analysis:
+      project_setup:
+        override: true
+      tests:
+        override:
+          - php-scrutinizer-run --enable-security-analysis

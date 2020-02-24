@@ -1,0 +1,19 @@
+---
+extensions:
+  FriendsOfPhpSpec\PhpSpec\CodeCoverage\CodeCoverageExtension:
+    format:
+      - php
+      - xml
+    whitelist:
+      - src
+    output:
+      php: build/coverage/phpspec.phpcoverage
+      xml: build/coverage/phpspec/phpspec-coverage-xml
+formatter.name: pretty
+suites:
+  default:
+    composer_suite_detection: true
+    spec_path: "%paths.config%/tests"
+    src_path: "%paths.config%/src"
+    namespace: RobHawkins\MyFirstWebPage\
+    psr4_prefix: RobHawkins\MyFirstWebPage\
