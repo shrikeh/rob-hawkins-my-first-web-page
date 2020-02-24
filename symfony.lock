@@ -1,39 +1,27 @@
 {
-    "doctrine/cache": {
-        "version": "1.10.x-dev"
-    },
-    "doctrine/collections": {
-        "version": "1.7.x-dev"
-    },
-    "doctrine/dbal": {
-        "version": "2.11.x-dev"
-    },
-    "doctrine/event-manager": {
-        "version": "1.1.x-dev"
-    },
-    "doctrine/persistence": {
-        "version": "1.4.x-dev"
-    },
-    "doctrine/reflection": {
-        "version": "1.2.x-dev"
-    },
     "php": {
         "version": "7.4"
     },
     "psr/cache": {
         "version": "1.0.x-dev"
     },
-    "symfony/amqp-messenger": {
-        "version": "5.1-dev"
+    "squizlabs/php_codesniffer": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "0dc9cceda799fd3a08b96987e176a261028a3709"
+        },
+        "files": [
+            "phpcs.xml.dist"
+        ]
     },
     "symfony/cache": {
         "version": "5.1-dev"
     },
     "symfony/cache-contracts": {
         "version": "2.0-dev"
-    },
-    "symfony/doctrine-messenger": {
-        "version": "5.1-dev"
     },
     "symfony/dotenv": {
         "version": "5.1-dev"
@@ -51,14 +39,15 @@
         ]
     },
     "symfony/framework-bundle": {
-        "version": "5.1",
+        "version": "4.4",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
-            "version": "5.1",
-            "ref": "7bbcedb04004d5bb27b0bd06daf501e3440983d0"
+            "version": "4.4",
+            "ref": "23ecaccc551fe2f74baf613811ae529eb07762fa"
         },
         "files": [
+            "config/bootstrap.php",
             "config/packages/cache.yaml",
             "config/packages/framework.yaml",
             "config/packages/test/framework.yaml",
@@ -87,8 +76,14 @@
             "config/packages/messenger.yaml"
         ]
     },
-    "symfony/redis-messenger": {
-        "version": "5.1-dev"
+    "symfony/mime": {
+        "version": "v5.0.4"
+    },
+    "symfony/polyfill-intl-idn": {
+        "version": "v1.14.0"
+    },
+    "symfony/polyfill-php72": {
+        "version": "v1.14.0"
     },
     "symfony/routing": {
         "version": "4.2",

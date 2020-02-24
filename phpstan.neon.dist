@@ -1,6 +1,5 @@
 parameters:
   paths:
-    - app
     - src
     - tests/unit/src
   level: 5

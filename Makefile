@@ -39,7 +39,7 @@ build-clean:
 
 test: test-php
 
-test-php: composer-validate phplint infection behat phpcs phpmd phpstan psalm phpmetrics
+test-php: composer-validate phplint infection phpcs phpmd phpstan psalm phpmetrics
 
 test-ci: phplint infection behat phpcs phpmd phpstan
 
@@ -65,10 +65,6 @@ infection-phpspec:
 	echo 'Running infection against phpspec...'
 	phpdbg -qrr ./vendor/bin/infection --debug -j2 --filter=$(ROOT_DIR)/src --coverage=$(ROOT_DIR)/build/coverage/phpspec/ --test-framework=phpspec
 
-behat:
-	echo 'Running behat test suite...'
-	php ./vendor/bin/behat
-
 phplint:
 	echo 'Running phplint...'
 	php ./vendor/bin/phplint
@@ -85,7 +81,7 @@ phpcs:
 	php ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit true --cache -p
 
 phpcbf:
-	php ./vendor/bin/phpcbf -p --runtime-set ignore_warnings_on_exit true src tests
+	php ./vendor/bin/phpcbf -p --runtime-set ignore_warnings_on_exit true config public src tests
 
 rector-safe:
 	./vendor/bin/rector process ./src --config vendor/thecodingmachine/safe/rector-migrate-0.6.yml
