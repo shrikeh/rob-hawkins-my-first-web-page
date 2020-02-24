@@ -3,7 +3,7 @@
     "description": "Watch as Rob takes his first giant leap into Web Programming! Ages 5+",
     "type": "project",
     "license": "MIT",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "php": "^7.4.2",
         "ext-ctype": "*",
@@ -29,14 +29,14 @@
         "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
         "friends-of-behat/symfony-extension": "^2.1@dev",
         "friends-of-phpspec/phpspec-code-coverage": "^4.0@dev",
-        "infection/infection": "^0.15.0",
+        "infection/infection": "^0.15",
         "jangregor/phpstan-prophecy": "dev-master",
         "jetbrains/phpstorm-stubs": "dev-master",
         "nikic/php-parser": "^4.3",
         "overtrue/phplint": "^1.2",
-        "php-coveralls/php-coveralls": "2.2.x-dev",
-        "php-ds/php-ds": "dev-master",
-        "phpcompatibility/php-compatibility": "dev-master",
+        "php-coveralls/php-coveralls": "^2.2",
+        "php-ds/php-ds": "^1.2",
+        "phpcompatibility/php-compatibility": "^9.3",
         "phpmd/phpmd": "dev-master",
         "phpmetrics/phpmetrics": "dev-master",
         "phpspec/phpspec": "^6.1",
@@ -51,7 +51,9 @@
         "vimeo/psalm": "^3.9"
     },
     "autoload": {
-        "RobHawkins\\MyFirstWebPage\\": "src"
+        "psr-4": {
+            "RobHawkins\\MyFirstWebPage\\": "src"
+        }
     },
     "autoload-dev": {
         "psr-4": {
