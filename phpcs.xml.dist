@@ -4,6 +4,7 @@
   <config name="testVersion" value="8.0-"/>
   <rule ref="PSR12" />
   <rule ref="PHPCompatibility"/>
+  <file>public</file>
   <file>src</file>
   <file>tests</file>
   <exclude-pattern>*.js</exclude-pattern>
