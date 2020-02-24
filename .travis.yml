@@ -14,8 +14,12 @@ script:
 - php vendor/bin/phpunit --prepend "./tests/unit/xdebug-filter.php"
 - php vendor/bin/infection --debug -j2 --filter=src --coverage=build/coverage/phpunit/
   --min-covered-msi=94 --min-msi=94 --test-framework=phpunit
-- php vendor/bin/phpcs --runtime-set ignore_warnings_on_exit true --cache -p src
-  tests
+- php vendor/bin/phpcs --runtime-set ignore_warnings_on_exit true --cache -p src tests
 after_success:
-- travis_retry bash <(curl -s https://codecov.io/bash) -s build/coverage/phpunit -s build/coverage/phpspec/phpspec-coverage-xml
+- travis_retry bash <(curl -s https://codecov.io/bash) -s build/coverage/phpunit -s
+  build/coverage/phpspec/phpspec-coverage-xml
 - travis_retry php vendor/bin/php-coveralls
+env:
+  global:
+  - secure: t1ksG9uFFHp76Ebu+VQbtF3/QpnEwy8nF8C7SWRzdhXLAXiyHfYoYaHxvNH6rB0vHLsu48nhXif3hWhF6fM67QXiA3jH0nKiwAQ66jeIuoDrLPMfzQjN5hCI9sqP5VhNZRXECQxcdF2zl3bYf4x7YU4u4LKaLqTQp0YNjSA+kwf7NU4G+o6yxYSjuoOWtGevVTYsA6vPDBFxjHV6ToRB1c5NiFKiFpMfk7U6BUSHQMOmX7DlL2ssew7kppA2709mmOeT3MA26wJFXl2WKYEhuva0M1ovePYwXci2qzhIMzVZnZY0Egj10FKVHZGsMBcrhSxMZbySK7bHdK7KxfZgEZxp3T/CJonHDoQzZ3AH0q4MV7MrsTuY/W+0ut5MlvI4ZwfwhUsf2VQfYBGc+jj3QkAJmrY56NAEK+8X+BXvqSOM6vm4fKv5DHGQCbI7BUVuRIsGdviwN/siUJ5cg5Jmpg94nM4u4YVnAtlMsRPKzIYO0MCerICkcGXpS3Yd0AhYkBiHjhxeb4okUjcpMb2dD9JrFTTUuw4CUk7ASIxdeictOTORg119YqfMC2zFaI34JxKmgEyUsjFKxUuzMeFc9I5xeBceaQeaOwwU3UMM0yP9Dl/t8dQUgpfqR3GWJF8XWP7lrIfu2BttU7FTJWOQUF7L++Ueg22e2s3iGOgMgY0=
+  - secure: BwwmYLt6EPQef+vXvxt1+4nn6UlR3t/gzJsFkHObBxVU0rp+W6YwYLUB0zndDjvcFpCYp/2g9YvLB3NuYEbOc5J0ojsjMt8cCpFS2oBIQD1QH2mT5pd6okFhA9T0ki5tggr57mYge6AuK74YGTDb610hCSihhM7iO0Se1qTzCBe18r/yTC9Dl6IlbXh3BGqpSqtA6rIN4XRNv5wau8Qv3jZPILYTiz8DyeDHa4ZLx0D3HjPHLWEKdhnnvFphtVf6T1ZHtaNcVFgpdPkfYZ2OfJEnsq0WD96nVC72dvrGGosMexmgi1iYYGff29i4ewa6OdkuP+/Y9ttHSnDRswnz4Xy/kqsGU4wS2maObdlBR1JoPfkXh2i8nM1id3p5EZwPf1Pwn+nYSmBxySH3SNqIo59Y7GAbwvr/RSXsRuAmTHuCj5Ll8wq8VE5wy9aQNkFAUpM7PIz4ZkVwOUOzYMXisFLbO+G1P54g1ImYZVF/P/TiAFsOPh3+f0bgTFtM4kxt3zaSeeIKC4PNnIIU77uKyZkGVVH2pJEptkl743vcCPS+H2kMsjo+2sqwqyPwhIeD7ILkxWwtVZ2pCb5tLAhQB6Ku3cmhhWz3tOm3zUcwbsZQbS+V7N7WlAnULN7haAnnpTEgbBprViBvnosK7rG1j2KkKS+cX/u5rnwrmVGB+fk=
