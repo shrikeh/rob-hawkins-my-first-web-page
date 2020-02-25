@@ -13,7 +13,8 @@ script:
 - php vendor/bin/phpspec run
 - php vendor/bin/phpunit --prepend "./tests/unit/xdebug-filter.php"
 - php vendor/bin/infection --debug -j2 --filter=src --coverage=build/coverage/phpunit/ --min-covered-msi=94 --min-msi=94 --test-framework=phpunit
-- php vendor/bin/phpcs --runtime-set ignore_warnings_on_exit true -p
+- php vendor/bin/phpcs --runtime-set ignore_warnings_on_exit true -p src
+
 after_success:
 - travis_retry bash <(curl -s https://codecov.io/bash) -s build/coverage/phpunit -s
   build/coverage/phpspec/phpspec-coverage-xml
