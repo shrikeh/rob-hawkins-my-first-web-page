@@ -1,23 +1,23 @@
+---
 language: php
 php:
-- 7.4.3
+  - 7.4.3
 cache:
   directories:
   - "$HOME/.composer/cache"
 jobs:
   fast_finish: true
 before_script:
-- composer install
+  - composer install
 script:
-- php vendor/bin/phplint
-- php vendor/bin/phpspec run
-- php vendor/bin/phpunit --prepend "./tests/unit/xdebug-filter.php"
-- php vendor/bin/infection --debug -j2 --filter=src --coverage=build/coverage/phpunit/ --min-covered-msi=${MIN_COVERED_MSI:-95} --min-msi=${MIN_MSI:-94} --test-framework=phpunit
-- php vendor/bin/phpcs --runtime-set ignore_warnings_on_exit true -p src
+  - php vendor/bin/phplint
+  - php vendor/bin/phpspec run
+  - php vendor/bin/phpunit --prepend "./tests/unit/xdebug-filter.php"
+  - php vendor/bin/infection --debug -j2 --filter=src --coverage=build/coverage/phpunit/ --min-covered-msi=${MIN_COVERED_MSI:-95} --min-msi=${MIN_MSI:-94} --test-framework=phpunit
+  - php vendor/bin/phpcs --runtime-set ignore_warnings_on_exit true -p src
 after_success:
-- travis_retry bash <(curl -s https://codecov.io/bash) -s build/coverage/phpunit -s
-  build/coverage/phpspec/phpspec-coverage-xml
-- travis_retry php vendor/bin/php-coveralls
+  - travis_retry bash <(curl -s https://codecov.io/bash) -s build/coverage/phpunit -s build/coverage/phpspec/phpspec-coverage-xml
+  - travis_retry php vendor/bin/php-coveralls
 env:
   global:
     - secure: t1ksG9uFFHp76Ebu+VQbtF3/QpnEwy8nF8C7SWRzdhXLAXiyHfYoYaHxvNH6rB0vHLsu48nhXif3hWhF6fM67QXiA3jH0nKiwAQ66jeIuoDrLPMfzQjN5hCI9sqP5VhNZRXECQxcdF2zl3bYf4x7YU4u4LKaLqTQp0YNjSA+kwf7NU4G+o6yxYSjuoOWtGevVTYsA6vPDBFxjHV6ToRB1c5NiFKiFpMfk7U6BUSHQMOmX7DlL2ssew7kppA2709mmOeT3MA26wJFXl2WKYEhuva0M1ovePYwXci2qzhIMzVZnZY0Egj10FKVHZGsMBcrhSxMZbySK7bHdK7KxfZgEZxp3T/CJonHDoQzZ3AH0q4MV7MrsTuY/W+0ut5MlvI4ZwfwhUsf2VQfYBGc+jj3QkAJmrY56NAEK+8X+BXvqSOM6vm4fKv5DHGQCbI7BUVuRIsGdviwN/siUJ5cg5Jmpg94nM4u4YVnAtlMsRPKzIYO0MCerICkcGXpS3Yd0AhYkBiHjhxeb4okUjcpMb2dD9JrFTTUuw4CUk7ASIxdeictOTORg119YqfMC2zFaI34JxKmgEyUsjFKxUuzMeFc9I5xeBceaQeaOwwU3UMM0yP9Dl/t8dQUgpfqR3GWJF8XWP7lrIfu2BttU7FTJWOQUF7L++Ueg22e2s3iGOgMgY0=
