@@ -1,4 +1,6 @@
 *.idea
+.env.test
+behat.yml.dist
 # Cache and logs (Symfony2)
 /app/cache/*
 /app/logs/*
@@ -66,3 +68,12 @@
 /.phpcs-cache
 /phpcs.xml
 ###< squizlabs/php_codesniffer ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> friends-of-behat/symfony-extension ###
+/behat.yml
+###< friends-of-behat/symfony-extension ###

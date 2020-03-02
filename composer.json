@@ -18,7 +18,8 @@
         "symfony/http-client-contracts": "^2.0",
         "symfony/messenger": "^5.0",
         "symfony/yaml": "^5.0",
-        "thecodingmachine/safe": "^1.0"
+        "thecodingmachine/safe": "^1.0",
+        "symfony/maker-bundle": "^1.14"
     },
     "require-dev": {
         "ext-xdebug": "*",
@@ -52,7 +53,7 @@
     },
     "autoload": {
         "psr-4": {
-            "RobHawkins\\MyFirstWebPage\\": "src"
+            "App\\": "src"
         }
     },
     "autoload-dev": {
